@@ -33,11 +33,11 @@ targets:
   1_fetch/out/nwis_01435000_data.csv:
     command: download_nwis_site_data(target_name)
 
-  site_data_clean:
-    command: process_data(site_data)
+  2_process/out/site_data_clean.csv:
+    command: process_data(filepath = target_name, site_data)
 
   site_data_annotated:
-    command: annotate_data(site_data_clean, site_filename = '1_fetch/out/site_info.csv')
+    command: annotate_data(site_data_clean_path = '2_process/out/site_data_clean.csv', site_filename = '1_fetch/out/site_info.csv')
 
   site_data_styled:
     command: style_data(site_data_annotated)	
