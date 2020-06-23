@@ -39,9 +39,9 @@ targets:
   site_data_annotated:
     command: annotate_data(site_data_clean_path = '2_process/out/site_data_clean.csv', site_filename = '1_fetch/out/site_info.csv')
 
-  site_data_styled:
-    command: style_data(site_data_annotated)	
+  2_process/out/site_data_styled.csv:
+    command: style_data(style_data_filepath = target_name, site_data_annotated)	
 
   3_visualize/out/figure_1.png:
     command: plot_nwis_timeseries(fileout = target_name, 
-      site_data_styled, width = 12, height = 7, units = I('in'))  
+      site_data_styled = '2_process/out/site_data_styled.csv', width = 12, height = 7, units = I('in'))  
