@@ -16,6 +16,8 @@ annotate_data <- function(site_data_clean_path, site_filename){
 }
 
 
-style_data <- function(site_data_annotated){
-  mutate(site_data_annotated, station_name = as.factor(station_name))
+style_data <- function(style_data_filepath, site_data_annotated){
+  site_data_annotated_out <- read_csv(style_data_filepath)
+  mutate(site_data_annotated_out, station_name = as.factor(station_name))
+  return(style_data_filepath)
 }
