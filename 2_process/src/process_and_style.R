@@ -18,5 +18,5 @@ annotate_data <- function(site_data_clean_inpath, site_filename){
 
 style_data <- function(style_data_outpath, site_data_annotated){
  site_data_annotated_styled <- mutate(site_data_annotated, station_name = as.factor(station_name))
- data.frame(site_data_annotated_styled)
+ return(site_data_annotated_styled)
 }
